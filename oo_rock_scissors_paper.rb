@@ -68,17 +68,19 @@ end
 
 class Game
 
-  def initialize
+  def play
     human = Human.new('Player 1')
     computer = Computer.new('Computer 1')
-    compare = Outcome.new(human, computer)
-    compare.calculate
+    loop do
+      compare = Outcome.new(human, computer)
+      compare.calculate
+      puts 'Try again? (y/n)'
+      break if gets.chomp.downcase != 'y'
+    end
   end
-  
+
 end
 
-loop do
-  Game.new
-  puts 'Try again? (y/n)'
-  break if gets.chomp.downcase != 'y'
-end
+
+game = Game.new
+game.play
