@@ -29,9 +29,11 @@ class Human < Player
     say_then_pause "#{name} choose #{CHOICES[humans_choice]}"
     humans_choice
   end
+
 end
 
 class Computer < Player
+
   def choose
     computer_choice = CHOICES.keys.sample
     say_then_pause "#{name} chose #{CHOICES[computer_choice]}"
@@ -61,6 +63,7 @@ class Outcome
       puts "#{computers_name} wins!"
     end
   end
+
 end
 
 class Game
@@ -71,6 +74,7 @@ class Game
     compare = Outcome.new(human, computer)
     compare.calculate
   end
+  
 end
 
 loop do
